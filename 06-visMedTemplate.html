@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="data-container"></section>
+    <template>
+    <article id="dyr">
+      <p class="navn"></p>
+      <p class="type"></p>
+      <p class="levested"></p>
+    <img class="billede"></img>
+    </article>
+</template>
+    <!-- <section id="liste"></section> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let dyr = [
+        { navn: "frog", type: "amfible", levested: "vandhullet", billede: "http://mabe-kea.dk/E19/pics/frog.png" },
+        { navn: "pig", type: "pattedyr", levested: "svinefarm", billede: "http://mabe-kea.dk/E19/pics/pig.png" },
+        { navn: "fox", type: "pattedyr", levested: "skoven", billede: "http://mabe-kea.dk/E19/pics/fox.png" },
+        { navn: "sild", type: "fisk", levested: "havet", billede: "http://mabe-kea.dk/E19/pics/sild.jpg" },
+        { navn: "kroko", type: "krybdyr", levested: "floden", billede: "http://mabe-kea.dk/E19/pics/kroko.jpg" },
+      ];
+
+      console.log()
+
+
+      function start() 
+      {
+        const container = document.querySelector(".data-container");
+        const dyrTemplate = document.querySelector("template");
+        dyr.forEach(dyr=> { 
+          let klon=dyrTemplate.cloneNode(true).content;
+          klon.querySelector(".navn").textContent=dyr.navn;
+          klon.querySelector(".type").textContent=dyr.type;
+          klon.querySelector(".levested").textContent=dyr.levested;
+          klon.querySelector(".billede").src=dyr.billede;
+          container.appendChild(klon);
+        })
+      }
+      // document.addEventListener("DOMContentLoaded", start);
+
+      // function start() {
+      //   const dyr = {
+      //     "navn": "gris",
+
+      //     "type": "pattedyr",
+
+      //     "levested": "svinefarm",
+
+      //     "billede": "http://mabe-kea.dk/E19/pics/pig.png"};
+      //   const destination = document.querySelector("#dyr");
+
+      //   destination.querySelector("p").textContent = dyr.navn  + dyr.type + dyr.levested;
+      //   destination.querySelector("img").src = dyr.billede;
+      // }
+      //   let dyr = { dyr: "gris", type: "pattedyr", levested: "svinefarm" };
+      //   // console.log(`dyr: ${dyr.dyr}, type: ${dyr.type},levested: ${dyr.levested}`);
+
+      // //   let dyr = { Dyr: "Gris", Type: "Pattedyr", Levested: "svinefarm",
+      // //   console.log(`dyr: ${dyr.dyr}, type: ${dyr.type},levested: ${dyr.levested}`);
+      // // Billede: "http://mabe-kea.dk/E19/pics/pig.png" };
+    </script>
+  </body>
+</html>
